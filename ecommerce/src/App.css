@@ -1,0 +1,91 @@
+body a{
+	text-decoration: none;
+}
+body{
+	background: #f0fafb;
+}
+.header{	
+	display: flex;
+	text-align: center;
+	padding: 15px 30px 15px 15px;
+	color: black;
+	font-size: 18px;
+	margin: 0;
+	padding: 4;
+	background: #fec107;	
+}
+.header img{
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+}
+.home{
+	margin-left: auto;
+}
+
+.header > div{
+	padding: 8px;	
+	cursor: pointer;
+}
+
+.header > div:hover{
+	color: white;
+	background: #f1b80c52;
+	border-radius: 10px;
+}
+.addcard{
+	position: relative;
+}
+
+.addcard_count{	
+	padding: 1px;
+	font-size: 15px;
+	position: absolute;	
+	height: 20px;
+	top: -5px;
+	color: white;	
+	left: 20px;
+	border-radius: 10px;
+	background: red;
+}
+
+
+.textbody{	
+	width: 90%;
+	margin: 0 auto;
+	height: calc(100vh - 80px);
+	background: #e4ec672b;
+}
+
+.textbody{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: left;
+	cursor: pointer;
+}
+
+ .card {  
+	margin: 0 auto;
+	background: #e1e8e775;
+	padding: 5px;  
+	width: 250px; 	
+	margin-left: 10px;
+	margin-top: 10px;    
+	border: 1px solid blue; 
+}
+
+.card img{
+	width:100%;
+	height: 200px;	
+}
+
+
+@media screen and (max-width: 600px) {
+  .res, .log{
+    display: none;
+  }
+
+  .home{
+    margin-left: auto;
+  }
+}
