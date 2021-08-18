@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="./deshboard.css">
+<link rel="icon" href="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043250-avatar-child-girl-kid_113270.png" type="image/gif" sizes="16x16">
+</head>
+<body>
+
+
+
+<%- include ('./header.ejs') %>
+ 
+ 
+
+<%- include ('./sitebar.ejs') %>
+
+
+<!-- Content -->
+<div class="main" id="cat">
+  
+    <h2>Products Add Forms</h2>    
+    <form action="/productsadd" method="POST" enctype="multipart/form-data">        
+        
+      <select name="catagori" class="slectop">
+        <% cata.forEach((data) => { %>
+          <option value="<%= data.product_catagori %>"><%= data.product_catagori %></option>
+        <% }) %>
+      </select>
+
+      <select name="productgroup" class="slectop">
+        <% cata.forEach((data) => { %>
+          <option value="<%= data.product_group %>"><%= data.product_group %></option>
+        <% }) %>
+      </select>
+
+        
+        <input type="text" name="product_name" placeholder="Product Name">
+        <input type="file" name="product_img" placeholder=""><br/><br/>
+        <input type="number" name="product_price" placeholder="Product Price">
+        <input type="text" name="product_qunt" placeholder="Product Quantity">
+        <input type="number" name="product_discount" placeholder="Product Discount"><br/><br/>
+        <textarea name="product_discription" placeholder="Product Discription" 
+        style="width: 60%; height: 30%"></textarea><br/><br/>
+        <input type="submit" class="submit" value="Submit">
+    </form> 
+     
+
+  <table class="table">
+    <tr>
+      <td>SL</td>
+      <td>Product</td>
+      <td>Product Group</td>
+      <td>Product Name</td>
+      <td>Product Price</td>
+    </tr>
+  <% results.forEach((data, index) => { %>
+    <tr>
+        <td><%= index+1 %></td>
+        <td><img src="<%= data.product_img %>" alt="Girl in a jacket" width="40" height="50"></td>
+        <td><%= data.productgroup %></td>
+        <td><%= data.product_name %></td>
+        <td><%= data.product_price %></td>        
+        <td><button><a href="/productdel/<%= data.id %>">Delete</a></button></td>        
+    </tr>
+  <% }) %>
+
+  </table>
+
+
+</div>
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script><script  src="./deshboardscript.js"></script>
+</body>
+</html>
