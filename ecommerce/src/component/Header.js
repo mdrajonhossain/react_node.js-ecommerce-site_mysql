@@ -21,7 +21,7 @@ return (
         <div className="log">Login</div>
         <div className="addcard">
         	<BsBucketFill style={{fontSize:"22px", color:"black"}}/>
-        	<span className="addcard_count">50</span>
+        	<span className="addcard_count">5</span>
         </div>
     </div>
   );
