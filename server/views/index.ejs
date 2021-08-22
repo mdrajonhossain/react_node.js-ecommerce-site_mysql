@@ -6,58 +6,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Admin Panel Log in</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'><link rel="stylesheet" href="./style.css">
-<link rel="icon" href="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043250-avatar-child-girl-kid_113270.png" type="image/gif" sizes="16x16">
-
+  <link rel="icon" href="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043250-avatar-child-girl-kid_113270.png" type="image/gif" sizes="20x20">  
+  <link rel="stylesheet" href="./login.css">
 </head>
 <body>
 
 <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-2"></div>
-            <div class="col-lg-6 col-md-8 login-box">
-                <div class="col-lg-12 login-key">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
-                <div class="col-lg-12 login-title">
-                    ADMIN PANEL
-                </div>
+    <form action="/auth" method="post">
+        <div class="signup">Sign up</div>
+        <div class="span">Email</div>
+        <input type="text" name="username" required class="username">
+        <div class="span">Password</div>
+        <input type="password" name="password" required class="password"><br/>
+        <button type="submit" class="submit-btn">Sign Up For Free</button>
+    </form>
 
-                <div class="col-lg-12 login-form">
-                    <div class="col-lg-12 login-form">                        
-                        
-                        <form action="/auth" method="post">
+        <div class="regi" onclick="regi()">Registration</div>
 
-                            <div class="form-group">
-                                <label class="form-control-label text-light">USERNAME</label>
-                                <input type="text" name="username" required class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label text-light">PASSWORD</label>
-                                <input type="password" name="password" required class="form-control" i>
-                            </div>
 
-                            <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-6 login-btm login-text">
-                                    <!-- Error Message -->
-                                </div>
-                                <div class="col-lg-12 login-btm login-button">
 
-                                <a class="btn btn-outline-primary" href="/registration" role="button">REGISTRATION</a>
+    <div class="admin_regisration" id="admin_regisration" style="display:none">
+      <div onclick="regi()">Please Contact Please-   01946513615</div>
+    </div>
+</div>
 
-                                <button type="submit" class="btn btn-outline-primary">LOGIN</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-2"></div>
-            </div>
-        </div>
-  
+
+<script>
+ 
+ 
+    const regi = ()=> {
+    var x = document.getElementById("admin_regisration");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+ 
+</script>
 </body>
 </html>

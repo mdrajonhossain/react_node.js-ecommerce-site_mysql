@@ -2,7 +2,7 @@ var mysql = require('mysql');
 
 var con = mysql.createConnection({
 	host     : 'localhost',
-    database : 'ponnodb',
+    database : 'ecommerce_one',
     user     : 'root',
     password : ''
 });

@@ -10,7 +10,7 @@ function Dataview() {
 useEffect(() => {    
     axios.get('http://192.168.0.102:3001/apibad')
     .then(function (response) {    
-      console.log(response.data);
+      
       setDataf(response.data);
     })
     .catch(function (error) {    
@@ -19,19 +19,27 @@ useEffect(() => {
 },[100]);
 
 
-const handleClick = (e)=> {
-  alert(e.product_name);
-}
 
+
+
+
+
+
+
+const handleClick = (e)=> {
+   
+  // console.log(e);
+  alert("sfasdf")
+}
   
 return (
     <div className="textbody">
        {dataf.map((data)=> {
         return (
           <div className="card">
-            <img src={data.product_img} alt="Girl in a jacket" onClick={()=>handleClick(data)}/>
-            <div className="">{data.product_name}</div>
-            <div className="">Price :{data.product_price}</div>            
+            <img src={data.imagePath} alt="Girl in a jacket" onClick={()=>handleClick(data)}/>
+            <div className="">{data.title}</div>
+            <div className="">Price :{data.price}</div>            
           </div>
           )
        })}

@@ -3,6 +3,7 @@ body a{
 }
 body{
 	background: #f0fafb;
+	overflow: hidden;
 }
 .header{	
 	display: flex;
@@ -19,7 +20,7 @@ body{
 	height: 50px;
 	cursor: pointer;
 }
-.home{
+.res{
 	margin-left: auto;
 }
 
@@ -88,4 +89,64 @@ body{
   .home{
     margin-left: auto;
   }
+}
+
+.addtable{
+	width: 40%;
+	margin: 0 auto;	
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.addtable td, th {
+  border: 1px solid #dddddd;
+}
+
+
+
+.addtable tr:nth-child(2n+2) {
+  background-color: lightblue;
+}
+.addproductbtn{
+	cursor: pointer;
+	background: red;
+	color: white;
+	width: 60px;
+	height: 30px;	
+}
+
+
+.product_body{
+	height: calc(100vh - 80px);  
+	display: grid;
+	grid-template-columns: 1fr 5fr; 
+}
+
+.sitebar{
+	border-top: 1px solid white;
+	width: 250px;
+	height: 100vh;
+	background: #fec107;
+}
+
+.product{
+	background: green;
+}
+
+.home{		
+	padding: 30px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-row-gap: 15px;
+}
+
+.c_card{
+	border: 1px solid red;
+	width: 230px;
+	
+}
+
+.c_card img{
+	width: 230px;
+	height: 180px;
 }

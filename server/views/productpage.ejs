@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>    
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="icon" href="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043250-avatar-child-girl-kid_113270.png" type="image/gif" sizes="20x20">  
+  <link rel="stylesheet" href="./des.css">
+</head>
+<body>
+
+  <%- include ('./header.ejs') %>  
+  <div class="desh_body">
+    <div class="left_bar">
+        <%- include ('./sitebar.ejs') %>      
+    </div>
+
+
+
+    <div class="right-site_body"> 
+            <h2>Product Deltails</h2>    
+        <div class="cat_page">
+        
+        <div class="form_tab">
+            <form action="/productsadd" method="POST" enctype="multipart/form-data">              
+              <span>Product Code</span><br/>
+              <input class="product_code" placeholder="product_code" type="text" name="productCode" required><br/>
+              <span>Product Title</span>
+              <input class="catinput" placeholder="Product_Title" type="text" name="title" required><br>
+              <br/>
+              <span>Product Image</span><br/>
+              <input class="catinput" placeholder="" type="file" name="imagePath" required>
+              <br/>       
+              <span>Product Description</span><br/>
+              <textarea name="description" placeholder="Product Discription" 
+              style="width: 90%; height: 80px"></textarea>
+              <span>Product Price</span><br/>
+              <input class="product_code" placeholder="price" type="text" name="price" required>
+              <br/><span>Product Catagory</span><br/>
+              <select name="category" class="catinput">
+                  <option value="Select Please">Selected Please ....</option>
+                  <% cata_title.forEach((data) => { %>
+                    <option value="<%= data.title %>"><%= data.title %></option>
+                  <% }) %>
+              </select>
+              <br/><span>Product Manufacturer</span><br/>
+              <input class="catinput" placeholder="manufacturer" type="text" name="manufacturer" required><br>       
+              <br/><span>Product Available ?</span><br/>
+              <input class="catinput" placeholder="available" type="text" name="available" required><br>              
+              <input type="submit" class="submit" value="Submit">
+            </form> 
+        </div>
+
+
+        <div class="form_view">
+          <table class="table">
+            <tr>
+              <td>Code</td>
+              <td>Product</td>              
+              <td>Price</td>              
+              <td>Catagory</td>              
+              <td>Add Time</td>   
+              <td>Action</td>   
+            </tr>   
+            <% results.forEach((data, index) => { %> 
+            <tr>
+                <td><%= data.productCode %></td>
+                <td><%= data.title %></td>
+                <td><%= data.price %>/-</td>
+                <td><%= data.product_category %></td>
+                <td><%= data.title %></td>
+                <td><a href="/productdel/<%= data.id %>">Delete</a></td>
+            </tr>
+            <% }) %>                
+          </table>
+        </div>        
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</body>
+</html>
