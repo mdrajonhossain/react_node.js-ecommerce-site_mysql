@@ -5,69 +5,63 @@ import { Link} from "react-router-dom";
 const axios = require('axios');
 
 
-
-
 function Addcardpage() {
-	const [localdata, setLocadata] = useState([]);
-	
+	const [dataproduct, setDataproduct] = useState([]);
 
 
- 
-
-useEffect(() => {    
-    axios.get('http://192.168.0.102:3001/orderpadingshow')
-    .then(function (response) {          
-      setLocadata(response.data);
-    	console.log(response.data.length)
-    	setInterval(function(){localStorage.setItem("addcardcount", JSON.stringify(response.data.length))},100);
-    })
-    .catch(function (error) {    
-      console.log(error);
-    })
-});
+	useEffect(() => {
+		setInterval(function(){ 
+        var product_card = JSON.parse(localStorage.getItem("product_card") || "[]");
+    	setDataproduct(product_card);
+        },10);    	
+	},[]);
 
 
-
-
-const addproductdelet = (e)=> {
-	alert(e)
+const product_add_delete = (id)=> {	
+	const product_card = JSON.parse(localStorage.getItem("product_card"));
+	product_card.splice(id, 1);
+	localStorage.setItem('product_card',JSON.stringify(product_card));
 }
 
  
+
+ function sum(...args) {
+  var sum = 0;
+  for (var arg of args) sum += arg;
+  return sum;
+}
+ 
 return (
     <>
-    <Header/>    
-      <table className="addtable">
-	      <tr>
-	      	<td>Product</td>
-	      	<td>Product Name</td>
-	      	<td>Quantity</td>
-	      	<td>Price</td>
-	      	<td>Total</td>
-	      	<td>Action</td>
-	      </tr>
+    <Header/>
 
-	      {
-	      	localdata && localdata.map((data, index)=> {
-		        return (
-			      <tr>
-			      	<td><img src={data.product_img} alt="Girl in a jacket" style={{width:'25px'}}/></td>
-			      	<td>{data.product_name}</td>
-			      	<td>{data.quantity}</td>			      	
-			      	<td>{data.price}</td>			      	
-			      	<td>{data.quantity * data.price}</td>
-			      	<td><button className="addproductbtn" onClick={()=>addproductdelet(index)}>Delete</button></td>
-			      </tr>
-		        )
-       		})
+    <div className="table_div">
+		<table className="product_add_table">
+						
+			<tr>
+				<td>Product Image</td>
+				<td>Product Name</td>
+				<td>Product Qnt</td>
+				<td>Product Price</td>
+				<td>Total</td>
+				<td>Action</td>
+			</tr>
 
-	  	}
+		 {dataproduct.map((data, index)=> {
+        return (
+				<tr>
+					<td><img src={data.product_img} alt="Girl in a jacket" width="80" height="40"/></td>
+					<td>{data.product_name}</td>					
+					<td>{data.qunt}</td>					
+					<td>{data.price}</td>					
+					<td>{data.qunt * data.price}</td>					
+					<td><button onClick={()=>product_add_delete(index)}>Delete</button></td>
+				</tr>
+        	)
+       	})}
+		</table>
 
-
-
-
-
-      </table>
+	</div>
     </>
   );
 }

@@ -171,7 +171,13 @@ router.get('/apibad', function (req, res) {
   db.query('select * from product', function (error, results, fields) {
     res.send(results)
   })
+})
 
+
+router.get('/apicat', function (req, res) {
+  db.query('select * from category', function (error, results, fields) {
+    res.send(results)
+  })
 })
 
 
